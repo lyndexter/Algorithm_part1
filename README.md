@@ -1,5 +1,11 @@
-Lab 1
-Methods: Merge sort, Insertion Sort
-language: python
-Usage:git clone https://github.com/damoklov/common-algorithms 
-then cd common-algorithms/python && python3 main.py
+# Sorting Book List
+
+Methods: Merge sort(descending), Insertion Sort(descending).
+
+language: python.
+
+Usage:git clone https://github.com/tiforn/algo_lab_1.git
+
+then open cd algo_lab_1
+
+and run: python3 main.py
