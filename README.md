@@ -1,10 +1,12 @@
-# Sorting Book List
+## Sorting Book List
 
 Methods: Merge sort(descending), Insertion Sort(descending).
 
 language: python.
 
-Usage:git clone https://github.com/tiforn/algo_lab_1.git
+### Usage:
+
+git clone https://github.com/tiforn/algo_lab_1.git
 
 then open cd algo_lab_1
 
