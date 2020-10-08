@@ -37,9 +37,12 @@ class SortManager:
         print(
             "\n\n    ---- Insertion Sort Descending by page number ---- \n "
             "quantity of compare operation: {}, \n quantity of change "
-            "operation {}, \n time: {} \n".format(quantity_operation_compare,
-                                                  quantity_operation_change,
-                                                  end_time - start_time))
+            "operation {}, \n time: {} ms \n".format(quantity_operation_compare,
+                                                     quantity_operation_change,
+                                                     (
+                                                             end_time -
+                                                             start_time) *
+                                                     1000))
 
     @staticmethod
     def merge_sort(books: List[Book], quantity_operation_compare: int,
@@ -61,6 +64,10 @@ class SortManager:
             left_array, quantity_operation_compare_previous, \
             quantity_operation_change_previous = SortManager.merge_sort(
                 books[:middle], 0, 0)
+
+            quantity_operation_compare += quantity_operation_compare_previous
+            quantity_operation_change += quantity_operation_change_previous
+
             right_array, quantity_operation_compare_previous, \
             quantity_operation_change_previous = SortManager.merge_sort(
                 books[middle:], 0, 0)
@@ -70,28 +77,57 @@ class SortManager:
 
             books.clear()
 
-            while len(left_array) > 0 and len(right_array) > 0:
+            # while len(left_array) > 0 and len(right_array) > 0:
+            #
+            #     quantity_operation_compare += 1
+            #
+            #     if left_array[0].price_in_UAH > right_array[0].price_in_UAH:
+            #         books.append(left_array.pop(0))
+            #
+            #         quantity_operation_change += 1
+            #     else:
+            #         books.append(right_array.pop(0))
+            #
+            #         quantity_operation_change += 1
+            #
+            # if len(left_array) > 0:
+            #     books.extend(left_array)
+            #
+            #     quantity_operation_change += len(left_array)
+            #
+            # if len(right_array) > 0:
+            #     books.extend(right_array)
+            #     quantity_operation_change += len(right_array)
+
+            left_array_edge = 0
+            right_array_edge = 0
+
+            while left_array_edge < len(left_array) and right_array_edge < len(
+                    right_array):
 
                 quantity_operation_compare += 1
 
-                if left_array[0].price_in_UAH > right_array[0].price_in_UAH:
-                    books.append(left_array.pop(0))
+                if left_array[left_array_edge].price_in_UAH > \
+                        right_array[right_array_edge].price_in_UAH:
+                    books.append(left_array[left_array_edge])
+                    left_array_edge += 1
 
                     quantity_operation_change += 1
                 else:
-                    books.append(right_array.pop(0))
+                    books.append(right_array[right_array_edge])
+                    right_array_edge += 1
 
                     quantity_operation_change += 1
 
-            if len(left_array) > 0:
-                books.extend(left_array)
+            if left_array_edge < len(left_array):
+                books.extend(left_array[left_array_edge:])
 
-                quantity_operation_change += len(left_array)
+                quantity_operation_change += len(left_array[left_array_edge:])
 
-            if len(right_array) > 0:
-                books.extend(right_array)
+            if right_array_edge < len(right_array):
+                books.extend(right_array[right_array_edge:])
 
-                quantity_operation_change += len(right_array)
+                quantity_operation_change += len(right_array[right_array_edge:])
 
         return books, quantity_operation_compare, quantity_operation_change
 
@@ -114,6 +150,7 @@ class SortManager:
         print(
             "\n\n    ---- Merge Sort Descending py price ---- \n quantity of "
             "compare operation: {}, \n quantity of change "
-            "operation {}, \n time: {}\n".format(quantity_operation_compare,
-                                                 quantity_operation_change,
-                                                 end_time - start_time))
+            "operation {}, \n time: {} ms\n".format(quantity_operation_compare,
+                                                    quantity_operation_change, (
+                                                            end_time -
+                                                            start_time) * 1000))

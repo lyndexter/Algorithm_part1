@@ -5,8 +5,8 @@ import csv
 
 
 def create_random_books_list():
-    books = [Book(random.randint(1, 100), "Stepan Vovk",
-                  random.randint(1, 100)) for i in range(50)]
+    books = [Book(random.randint(1, 200), "Stepan Vovk",
+                  random.randint(1, 200)) for i in range(32)]
     return books
 
 
@@ -37,5 +37,3 @@ if __name__ == '__main__':
 
     for i in books:
         print(i)
-
-    input("\n Enter any ket to exit")
