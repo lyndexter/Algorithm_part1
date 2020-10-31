@@ -4,13 +4,13 @@ task is in calendar.docx
 
 in this repository is two way of sloving problem:
 
-first in calendar.py
+_first in calendar.py_
 
-second: calendar_second_way.py
+_second: calendar_second_way.py_
 
-also this modules has automatic tests(utest+calendar.py, utest_calendar_second_way.py)
+also this modules has automatic tests(_utest+calendar.py, utest_calendar_second_way.py_)
 
-###Sloving problems:
+### Sloving problems:
 
 first of all algorithms sorts input array of tuple and create linked list to this array
 
