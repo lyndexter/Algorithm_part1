@@ -48,6 +48,15 @@ class LinkedList:
             print(element.value)
             element = element.next
 
+    def get_list(self):
+        element = self.head
+        result = []
+        while element:
+            result.append(element.value)
+            element = element.next
+
+        return result
+
 
 def create_LinckedList(array_list):
     linked_list = LinkedList()
@@ -91,14 +100,14 @@ def join_elements(lincked_list_of_tupple):
 
 
 if __name__ == '__main__':
-    array_list = input_values()
+    input_schedule = input_values()
 
-    quicksort(array_list, 0, len(array_list) - 1)
-    print(array_list)
+    quicksort(input_schedule, 0, len(input_schedule) - 1)
+    print(input_schedule)
 
-    lincked_list = create_LinckedList(array_list)
+    schedule = create_LinckedList(input_schedule)
 
-    join_elements(lincked_list)
+    join_elements(schedule)
 
     print()
-    lincked_list.print_list()
+    schedule.print_list()

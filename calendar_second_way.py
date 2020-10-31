@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Node:
     def __init__(self, value):
         self.next = None
@@ -15,14 +18,19 @@ class LinkedList:
             print(element.value)
             element = element.next
 
-    def create_lincked_list(self):
-        while True:
-            raw_numbers = input()
-            if raw_numbers == "":
-                return
-            x, y = raw_numbers.split(" ")
-            x = int(x)
-            y = int(y)
+    def get_list(self):
+        element = self.head
+        result = []
+        while element:
+            result.append(element.value)
+            element = element.next
+
+        return result
+
+    def create_lincked_list(self, list: List):
+        for raw_numbers in list:
+            x = raw_numbers[0]
+            y = raw_numbers[1]
             if self.head is None:
                 self.head = Node((x, y))
                 self.current_element = self.head
@@ -69,9 +77,21 @@ class LinkedList:
 
 
 if __name__ == '__main__':
-    list = LinkedList()
-    list.create_lincked_list()
-    list.print_list()
+
+    schedule = LinkedList()
+
+    input_schedule = []
+    while True:
+        raw_numbers = input()
+        if raw_numbers == "":
+            break
+        x, y = raw_numbers.split(" ")
+        x = int(x)
+        y = int(y)
+        input_schedule.append((x, y))
+
+    schedule.create_lincked_list(input_schedule)
+    schedule.print_list()
     print()
-    list.join_nodes()
-    list.print_list()
+    schedule.join_nodes()
+    schedule.print_list()
