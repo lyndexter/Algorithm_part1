@@ -38,6 +38,6 @@ Firstly, download repo:     ```git clone https://github.com/tiforn/Algorithm_par
 
 then open package:   ```cd Algorithm_part1```
 
-go to branch lab4   ```git checkout lab5```
+go to branch lab5   ```git checkout lab5```
 
 and run python file  ```python main.py```
